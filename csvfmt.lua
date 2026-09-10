@@ -28,5 +28,10 @@ function csvfmt(bp, args)
         micro.InfoBar():Error("aligncsv: save this buffer to a file first")
     end
 
-    local cmd = string.format('align -f "%s" -o "%s" -s "%s"')
+    local cmd = string.format('align -f "%s" -o "%s" -s "%s"', buf.Path, buf.Path, delim)
+    if qualifier ~= nil then
+        cmd = cmd .. string.format(' -q "%s"', qualifier)
+    end
+
+
 end
