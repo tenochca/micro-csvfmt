@@ -5,9 +5,21 @@ local config = import("micro/config")
 
 
 function init()
-    config.MakeCommand("ruffjump", ruffjump, config.NoComplete)
+    config.MakeCommand("ruffjump", csvfmt, config.NoComplete)
 end
 
-function ruffjump()
-    micro.InfoBar():Message("TESTING")
+-- usage: aligncsv [delimeter] [qualifier]
+function csvfmt(bp, args)
+    local buf = bp.Buf
+
+    local delim = ','
+    if args ~= nil and args[1] ~= nil and args[1] ~= '' then
+        delim = args[1]
+    end
+
+    local qualifier = nil
+    if args ~= nill and args[2] ~= nil and args[2] ~= '' then
+        qualifier = args[2]
+    end
+
 end
