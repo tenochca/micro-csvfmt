@@ -22,4 +22,11 @@ function csvfmt(bp, args)
         qualifier = args[2]
     end
 
+    bp.Save()
+
+    if buf.Path == nil or buf.Path == '' then
+        micro.InfoBar():Error("aligncsv: save this buffer to a file first")
+    end
+
+
 end
