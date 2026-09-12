@@ -2,10 +2,11 @@ VERSION = "1.0.0"
 
 local micro = import("micro")
 local config = import("micro/config")
+local shell = import("micro/shell")
 
 
 function init()
-    config.MakeCommand("ruffjump", csvfmt, config.NoComplete)
+    config.MakeCommand("csvfmt", csvfmt, config.NoComplete)
 end
 
 -- usage: aligncsv [delimeter] [qualifier]
@@ -22,7 +23,7 @@ function csvfmt(bp, args)
         qualifier = args[2]
     end
 
-    bp.Save()
+    bp:Save()
 
     if buf.Path == nil or buf.Path == '' then
         micro.InfoBar():Error("aligncsv: save this buffer to a file first")
@@ -39,6 +40,6 @@ function csvfmt(bp, args)
         return
     end
 
-    buf.ReOpen()
+    buf:ReOpen()
     micro.InfoBar():Message("aligncsv: aligned on '" .. delim .. "'")
 end
