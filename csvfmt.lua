@@ -18,7 +18,7 @@ function csvfmt(bp, args)
     end
 
     local qualifier = nil
-    if args ~= nill and args[2] ~= nil and args[2] ~= '' then
+    if args ~= nil and args[2] ~= nil and args[2] ~= '' then
         qualifier = args[2]
     end
 
@@ -33,5 +33,12 @@ function csvfmt(bp, args)
         cmd = cmd .. string.format(' -q "%s"', qualifier)
     end
 
+    local _, err = shell.RunCommand(cmd)
+    if err ~= nil then
+        micro.InfoBar:Error("aligncsv: " .. tostring(err) .. " (is the align binary on your PATH?)")
+        return
+    end
 
+    buf.ReOpen()
+    micro.InfoBar():Message("aligncsv: aligned on '" .. delim .. "'")
 end
