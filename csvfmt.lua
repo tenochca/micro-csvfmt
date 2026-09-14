@@ -3,6 +3,7 @@ VERSION = "1.0.0"
 local micro = import("micro")
 local config = import("micro/config")
 local shell = import("micro/shell")
+local os = import("os")
 
 
 function init()
@@ -29,7 +30,8 @@ function csvfmt(bp, args)
         micro.InfoBar():Error("aligncsv: save this buffer to a file first")
     end
 
-    local cmd = string.format('align -f "%s" -o "%s" -s "%s"', buf.Path, buf.Path, delim)
+    local tmpPath = buf.Path .. ".aligntmp"
+    local cmd = string.format('align -f "%s" -o "%s" -s "%s"', buf.Path, tmpPath, delim)
     if qualifier ~= nil then
         cmd = cmd .. string.format(' -q "%s"', qualifier)
     end
@@ -37,6 +39,13 @@ function csvfmt(bp, args)
     local _, err = shell.RunCommand(cmd)
     if err ~= nil then
         micro.InfoBar:Error("aligncsv: " .. tostring(err) .. " (is the align binary on your PATH?)")
+        os.Remove(tmpPath)
+        return
+    end
+
+    local _, renameErr = os.Rename(tmpPath, buf.Path)
+    if renameErr ~= nil then
+        micro.InfoBar():Error("aligncsv: " .. tostring(renameErr))
         return
     end
 
