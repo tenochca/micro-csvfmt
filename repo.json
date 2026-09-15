@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "csvfmt",
+    "Description": "Align CSV/delimited files in place using 'align' csv tool",
+    "Website": "https://github.com/tenochca/micro-csvfmt",
+    "Tags": [
+      "csv",
+      "format",
+      "align"
+    ],
+    "Versions": [
+      {
+        "Version": "1.0.0",
+        "Require": {
+          "micro": ">=2.0.0"
+        }
+      }
+    ]
+  }
+]

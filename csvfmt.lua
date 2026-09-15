@@ -43,6 +43,13 @@ function csvfmt(bp, args)
         return
     end
 
+    local info, statErr = os.Stat(tmpPath)
+    if statErr ~= nil or info:Size() == 0 then
+        micro.InfoBar():Error("aligncsv: align produced no output, leaving original file untouched")
+        os.Remove(tmpPath)
+        return
+    end
+
     local _, renameErr = os.Rename(tmpPath, buf.Path)
     if renameErr ~= nil then
         micro.InfoBar():Error("aligncsv: " .. tostring(renameErr))
