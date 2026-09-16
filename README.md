@@ -21,3 +21,38 @@ Hector ,Gonzalez,h.gonzalez@example.com
 Kim    ,Lee     ,kim.lee@example.com
 
 
+## Requirements
+ 
+- [Micro](https://micro-editor.github.io/) 2.0 or later
+- The [`align`](https://github.com/Guitarbum722/align) CLI tool, available on
+  your `PATH`
+Install `align` with Go:
+ 
+```sh
+go install github.com/Guitarbum722/align/cmd/align@latest
+```
+ 
+Make sure Go's bin directory (`go env GOPATH`/bin, typically `~/go/bin`) is on
+your `PATH`, then confirm with:
+ 
+```sh
+align --help
+```
+
+## Installation
+ 
+```sh
+mkdir -p ~/.config/micro/plug/aligncsv
+curl -o ~/.config/micro/plug/aligncsv/aligncsv.lua \
+  https://raw.githubusercontent.com/YOUR_USERNAME/aligncsv/main/aligncsv.lua
+```
+ 
+Or clone this repo directly into your plugin directory:
+ 
+```sh
+git clone https://github.com/YOUR_USERNAME/aligncsv ~/.config/micro/plug/aligncsv
+```
+ 
+Restart Micro. No further configuration is needed — Micro auto-loads any
+`.lua` file under `~/.config/micro/plug/<name>/`.
+ 
