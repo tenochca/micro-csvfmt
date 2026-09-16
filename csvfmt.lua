@@ -10,7 +10,7 @@ function init()
     config.MakeCommand("csvfmt", csvfmt, config.NoComplete)
 end
 
--- usage: aligncsv [delimeter] [qualifier]
+-- usage: csvfmt [delimeter] [qualifier]
 function csvfmt(bp, args)
     local buf = bp.Buf
 
