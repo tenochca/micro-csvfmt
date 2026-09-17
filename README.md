@@ -45,7 +45,7 @@ align --help
 ```sh
 mkdir -p ~/.config/micro/plug/aligncsv
 curl -o ~/.config/micro/plug/aligncsv/aligncsv.lua \
-  https://raw.githubusercontent.com/YOUR_USERNAME/aligncsv/main/aligncsv.lua
+  https://raw.githubusercontent.com/tenochca/aligncsv/main/aligncsv.lua
 ```
  
 Or clone this repo directly into your plugin directory:
