@@ -15,12 +15,12 @@ function csvfmt(bp, args)
     local buf = bp.Buf
 
     local delim = ','
-    if args ~= nil and args[1] ~= nil and args[1] ~= '' then
+    if args ~= nil and #args >= 1 and args[1] ~= '' then
         delim = args[1]
     end
 
     local qualifier = nil
-    if args ~= nil and args[2] ~= nil and args[2] ~= '' then
+    if args ~= nil and #args >= 2 and args[2] ~= '' then
         qualifier = args[2]
     end
 
