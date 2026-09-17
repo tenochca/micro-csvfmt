@@ -51,7 +51,7 @@ curl -o ~/.config/micro/plug/aligncsv/aligncsv.lua \
 Or clone this repo directly into your plugin directory:
  
 ```sh
-git clone https://github.com/YOUR_USERNAME/aligncsv ~/.config/micro/plug/aligncsv
+git clone https://github.com/tenochca/aligncsv ~/.config/micro/plug/aligncsv
 ```
 
 ## Usage
@@ -64,7 +64,7 @@ aligncsv
 ```
  
 This saves your buffer, aligns it in place on a comma delimiter, and reloads
-the result — all in one step.
+the result, all in one step.
  
 ### Custom delimiter
  
