@@ -52,6 +52,26 @@ Or clone this repo directly into your plugin directory:
 ```sh
 git clone https://github.com/YOUR_USERNAME/aligncsv ~/.config/micro/plug/aligncsv
 ```
+
+Usage
+
+Open a delimited file in Micro, then run:
+
+Ctrl-E
+aligncsv
+
+This saves your buffer, aligns it in place on a comma delimiter, and reloads the result — all in one step.
+
+Custom delimiter
+aligncsv ;
+
+Aligns on ; instead of ,.
+
+Text qualifier
+
+If a field can contain the delimiter itself (e.g. a comma inside a quoted CSV value), pass a qualifier as the second argument:
+
+aligncsv , "
  
 Restart Micro. No further configuration is needed — Micro auto-loads any
 `.lua` file under `~/.config/micro/plug/<name>/`.
